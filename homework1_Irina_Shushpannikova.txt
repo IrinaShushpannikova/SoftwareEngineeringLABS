@@ -1,0 +1,33 @@
+Homework 1. Irina Shushpannikova
+
+Task 6.
+find . -maxdepth 1 -name "*.txt" | wc -l
+
+Task 7.
+mkdir Box
+sudo chgrp users Box/
+sudo chmod g+t Box/
+
+Task 8.
+find . -maxdepth 1 -name "*.txt" | wc -l
+
+Task 9.
+find . -name "00221*.txt" | wc -l
+
+Task 10.
+solution1:   find . -name "*.txt" -exec wc -l {} +
+solution2:   find . -name '*.txt' | xargs wc -l
+
+Task 11. 
+solution1:  cd /
+            find . -type f -print0 | xargs -0 -I{} stat -c '%s %n' {} | sort -n
+solution2: sudo du -a --max-depth=1 | sort -n
+solution3: sudo du -sh /* | sort -r
+
+Task 12. 
+solution1: sudo du -sh /* --exclude=/sys | sort -r | head -1
+solution2: sudo du -a --max-depth=1 --exclude=/sys | sort -n | head -1
+
+Task 13. 
+solution1:  sudo du -sh /* --exclude=/sys --threshold=1k
+solution2:  sudo du -a --max-depth=1 --exclude=/sys --threshold=1k| sort -n 
