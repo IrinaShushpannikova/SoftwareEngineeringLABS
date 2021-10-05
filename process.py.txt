@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+import sys
+
+def line_preparing(data: str):
+    data_separated = data.split(',')
+    user_id, name, numbs = data_separated
+    return int(user_id), name, float(numbs)
+
+def get_results(id, name, value):
+    if id>0:
+        id=id+2
+        name= name.lower().replace(' ', '_')
+        value=value*0.5
+
+    return id, name, value
+
+
+for line in sys.stdin:
+    id, name, value = line_preparing(line)
+    output = get_results(id, name, value)
+    print(output)
