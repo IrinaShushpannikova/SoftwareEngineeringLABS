@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+import sys
+
+def line_preparing(data: str):
+    data_separated = data.split(',')
+    if len(data_separated) != 3:
+        return None, None, None
+    try:
+        user_id, name, value = data_separated
+        return int(user_id), name, float(value)
+    except ValueError as err:
+        print(f'Error in data type - {err}')
+        return None, None, None
+
+def get_results(id, name, value):
+    if id>0:
+        id=id+2
+        name= name.lower().replace(' ', '_')
+        value=value*0.5
+
+    return id, name, value
+
+
+for line in sys.stdin:
+    id, name, value = line_preparing(line)
+    output = get_results(id, name, value)
+    print(output)
